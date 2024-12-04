@@ -2,9 +2,7 @@ import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utls/asset.dart';
 import 'package:bookly_app/core/utls/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -31,7 +29,7 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Expanded(
@@ -48,11 +46,11 @@ class BestSellerListViewItem extends StatelessWidget {
                   style: Styles.textStyle20.copyWith(fontFamily: kSecondryFont),
                 ),
               ),
-              Text(
+              const Text(
                 'J.K. Rowling',
                 style: Styles.textStyle14,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 3,
               ),
               Row(
@@ -63,7 +61,7 @@ class BestSellerListViewItem extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
-                  BookRating()
+                  const BookRating()
                 ],
               ),
             ],

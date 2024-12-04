@@ -8,8 +8,8 @@ class BestSellerListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 16),
+        return const Padding(
+          padding: EdgeInsets.only(bottom: 16),
           child: BestSellerListViewItem(),
         );
       },
