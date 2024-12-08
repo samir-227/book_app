@@ -1,19 +1,15 @@
-import 'package:bookly_app/core/utls/app_router.dart';
 import 'package:bookly_app/core/utls/asset.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class BookItem extends StatelessWidget {
-  const BookItem({super.key});
+class BookDetailsItem extends StatelessWidget {
+  const BookDetailsItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 3 / 4,
-      child: GestureDetector(
-        onTap: () {
-          GoRouter.of(context).push(AppRouter.kDetailsView);
-        },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: AspectRatio(
+        aspectRatio: 2.6 / 4,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.red,

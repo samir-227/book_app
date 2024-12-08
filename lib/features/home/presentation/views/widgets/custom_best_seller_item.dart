@@ -1,8 +1,10 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/utls/app_router.dart';
 import 'package:bookly_app/core/utls/asset.dart';
 import 'package:bookly_app/core/utls/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -15,15 +17,20 @@ class BestSellerListViewItem extends StatelessWidget {
           height: 125,
           child: AspectRatio(
             aspectRatio: 2.7 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(8),
-                image: const DecorationImage(
-                  image: AssetImage(
-                    AssetsData.testImage,
+            child: GestureDetector(
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kDetailsView);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(8),
+                  image: const DecorationImage(
+                    image: AssetImage(
+                      AssetsData.testImage,
+                    ),
+                    fit: BoxFit.fill,
                   ),
-                  fit: BoxFit.fill,
                 ),
               ),
             ),
