@@ -33,6 +33,29 @@ class HomeRepoImplement implements HomeRepo {
       );
     }
   }
+  //try {
+  //     var data = await apiService
+  //         .get('volumes?Filtering=free-ebooks&q=subject:Programming');
+  //     List<BookModel> books = [];
+  //     for (var item in data['item']) {
+  //       try {
+  //         books.add(BookModel.fromJson(item));
+  //       } catch (e) {
+  //         books.add(BookModel.fromJson(item));
+  //       }
+  //     }
+  //     return right(books);
+  //   } on Exception catch (error) {
+  //     if (error is DioException) {
+  //       return Left(ServerFailure.fromDioError(error));
+  //     }
+  //     return Left(
+  //       ServerFailure(
+  //         errMessage: error.toString(),
+  //       ),
+  //     );
+  //   }
+  // }
 
   @override
   Future<Either<Failures, List<BookModel>>> FetchNewestBooks() async {
