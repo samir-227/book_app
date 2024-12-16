@@ -15,39 +15,72 @@ class HomeRepoImplement implements HomeRepo {
       var data = await apiService
           .get('volumes?Filtering=free-ebooks&q=subject:Programming');
       List<BookModel> books = [];
-      for (var item in data['item']) {
+      for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
+
       return right(books);
-    } on Exception catch (error) {
-      if (error is DioException) {
-        return Left(ServerFailure.fromDioError(error));
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
       }
-      return Left(
+      return left(
         ServerFailure(
-          errMessage: error.toString(),
+          errMessage: e.toString(),
         ),
       );
     }
   }
+  //try {
+  //     var data = await apiService
+  //         .get('volumes?Filtering=free-ebooks&q=subject:Programming');
+  //     List<BookModel> books = [];
+  //     for (var item in data['item']) {
+  //       try {
+  //         books.add(BookModel.fromJson(item));
+  //       } catch (e) {
+  //         books.add(BookModel.fromJson(item));
+  //       }
+  //     }
+  //     return right(books);
+  //   } on Exception catch (error) {
+  //     if (error is DioException) {
+  //       return Left(ServerFailure.fromDioError(error));
+  //     }
+  //     return Left(
+  //       ServerFailure(
+  //         errMessage: error.toString(),
+  //       ),
+  //     );
+  //   }
+  // }
 
   @override
   Future<Either<Failures, List<BookModel>>> FetchNewestBooks() async {
     try {
       var data = await apiService.get(
-          'volumes?Filtering=free-ebooks&q=subject: programming&Sorting=newest');
+          'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
       List<BookModel> books = [];
-      for (var item in data['item']) {
-        books.add(BookModel.fromJson(item));
+      for (var item in data['items']) {
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
+
       return right(books);
-    } on Exception catch (error) {
-      if (error is DioException) {
-        return Left(ServerFailure.fromDioError(error));
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
       }
-      return Left(
+      return left(
         ServerFailure(
-          errMessage: error.toString(),
+          errMessage: e.toString(),
         ),
       );
     }
