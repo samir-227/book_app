@@ -1,11 +1,11 @@
 import 'package:bookly_app/core/utls/widgets/error_widget.dart';
 import 'package:bookly_app/features/home/presentation/manager/newest_book_cubit/newest_book_cubit.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/custom_best_seller_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_newest_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({super.key});
+class NewestBookListView extends StatelessWidget {
+  const NewestBookListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class BestSellerListView extends StatelessWidget {
             padding: const EdgeInsets.all(0),
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: BestSellerListViewItem(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: NewestBookListViewItem(
                   bookModel: state.books[index],
                 ),
               );

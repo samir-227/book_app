@@ -7,8 +7,8 @@ import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key, required this.bookModel});
+class NewestBookListViewItem extends StatelessWidget {
+  const NewestBookListViewItem({super.key, required this.bookModel});
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {

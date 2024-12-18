@@ -22,7 +22,7 @@ class FeaturedListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(right: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: GestureDetector(
                     onTap: () {
                       GoRouter.of(context).push(AppRouter.kDetailsView);
