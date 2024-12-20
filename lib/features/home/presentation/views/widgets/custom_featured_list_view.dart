@@ -7,7 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class FeaturedListView extends StatelessWidget {
-  const FeaturedListView({super.key});
+  const FeaturedListView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,8 @@ class FeaturedListView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: GestureDetector(
                     onTap: () {
-                      GoRouter.of(context).push(AppRouter.kDetailsView);
+                      GoRouter.of(context).push(AppRouter.kDetailsView,
+                          extra: state.books[index]);
                     },
                     child: BookItem(
                       imageUrl:

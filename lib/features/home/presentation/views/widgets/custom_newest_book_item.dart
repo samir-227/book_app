@@ -14,7 +14,7 @@ class NewestBookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kDetailsView);
+        GoRouter.of(context).push(AppRouter.kDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 125,
@@ -58,8 +58,11 @@ class NewestBookListViewItem extends StatelessWidget {
                       const Spacer(),
                       BookRating(
                         bookRating:
-                            bookModel.volumeInfo.maturityRating ?? '4.8',
-                        count: bookModel.volumeInfo.maturityRating ?? '2589',
+                            // bookModel.volumeInfo.maturityRating ??
+                            '4.8',
+                        count:
+                            // bookModel.volumeInfo.maturityRating ??
+                            '2589',
                         mainAxisAlignment: MainAxisAlignment.start,
                       )
                     ],

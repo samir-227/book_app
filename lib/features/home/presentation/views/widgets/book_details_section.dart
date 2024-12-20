@@ -1,12 +1,13 @@
 import 'package:bookly_app/core/utls/styles.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/book_details_item.dart';
+import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
-
+  const BookDetailsSection({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -19,14 +20,17 @@ class BookDetailsSection extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .2),
-          child: BookDetailsItem(),
+          child: BookItem(
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+          ),
         ),
         const SizedBox(
           height: 24,
         ),
         Text(
-          'The Jungle Book',
+          bookModel.volumeInfo.title!,
           style: Styles.textStyle30,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 8,
@@ -34,22 +38,23 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            'Rudyard Kipling',
+            bookModel.volumeInfo.title!,
             style: Styles.textStyle18,
+            textAlign: TextAlign.center,
           ),
         ),
         const SizedBox(
-          height: 17,
+          height: 16,
         ),
         const BookRating(
-          bookRating: '5',
-          count: '5',
+          bookRating: '4.8',
+          count: '(2390)',
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(
           height: 37,
         ),
-        CustomButton(),
+        const CustomButton(),
       ],
     );
   }
